@@ -4,6 +4,7 @@ source 'https://rubygems.org'
 gem 'rails', '4.0.1'
 
 gem 'bootstrap-sass'
+
 gem 'therubyracer'
 gem 'protected_attributes'
 
