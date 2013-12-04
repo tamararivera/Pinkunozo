@@ -6,7 +6,10 @@ gem 'rails', '4.0.1'
 gem 'bootstrap-sass'
 
 gem 'therubyracer'
-gem 'protected_attributes'
+gem 'faker'
+
+gem 'will_paginate', '3.0.4'
+gem 'will_paginate-bootstrap'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
