@@ -1,0 +1,12 @@
+<% provide(:title, @project.name) %>
+<h1><%= @project.name %></h1>
+<p>
+<%= @project.description %>
+</p>
+<div class="btn-group btn-group-justified">
+  <%= link_to "Actas", "#", class: "btn btn-default" %>
+  <%= link_to "Libro de acuerdos", "#", class: "btn btn-default" %>
+  <%= link_to "Síntesis díalogica", "#", class: "btn btn-default" %>
+  <%= link_to "Acciones en curso", "#", class: "btn btn-default" %>
+  <%= link_to "Reportes de gestión", "#", class: "btn btn-default" %>
+</div>
