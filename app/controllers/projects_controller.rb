@@ -1,4 +1,5 @@
 class ProjectsController < ApplicationController
+  before_action :signed_in_user
   def show
     @project = Project.find(params[:id])
   end
