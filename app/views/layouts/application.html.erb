@@ -10,13 +10,15 @@
     <![endif]-->
   </head>
   <body>
-    <%= render 'layouts/header' %>
-    <div class="container">
-      <% flash.each do |key, value| %>
-        <div class="<%= flash_class(key) %>"><%= value %></div>
-      <% end %>
-      <%= yield %>
-      <%= render 'layouts/footer' %>
+    <div id="wrap">
+      <%= render 'layouts/header' %>
+      <div class="container">
+        <% flash.each do |key, value| %>
+          <div class="<%= flash_class(key) %>"><%= value %></div>
+        <% end %>
+        <%= yield %>
+      </div>
     </div>
+    <%= render 'layouts/footer' %>
   </body>
 </html>

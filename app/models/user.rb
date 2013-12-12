@@ -1,4 +1,6 @@
 class User < ActiveRecord::Base
+  has_many :user_projects, dependent: :destroy
+  has_many :projects, through: :user_projects
   has_secure_password
 
   before_save { |user| user.email = email.downcase }

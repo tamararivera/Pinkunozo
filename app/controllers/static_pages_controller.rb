@@ -1,5 +1,6 @@
 class StaticPagesController < ApplicationController
   def home
+    @projects = current_user.projects
   end
 
   def help
