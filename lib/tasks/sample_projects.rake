@@ -1,5 +1,5 @@
 namespace :db do
-  desc "Fill database with sample projects"
+  desc "Fill database with sample user and projects"
   task populate: :environment do
     make_users
     make_projects
@@ -23,9 +23,17 @@ namespace :db do
   end
 
   def make_projects
-    Project.create!(name: "Proyecto Fondef",
-                    description: "Este es un proyecto fabuloso")
-    project = Project.first
+    project = Project.create!(name: "Proyecto Fondef",
+                              description: "Este es un proyecto fabuloso")
     project.add_user!(User.first)
+  
+    99.times do |n|
+      name = Faker::Lorem.sentence
+      description = Faker::Lorem.paragraph
+      project = Project.create!(name: name,
+                                description: description)
+      project.add_user!(User.first)
+      
+    end
   end
 end

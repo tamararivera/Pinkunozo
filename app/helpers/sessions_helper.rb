@@ -12,7 +12,7 @@ module SessionsHelper
   def signed_in_user
     unless signed_in? 
       store_location
-      redirect_to signin_url, notice: "Por favor inice sesión."
+      redirect_to signin_path, notice: "Por favor inice sesión."
     end
   end 
 
