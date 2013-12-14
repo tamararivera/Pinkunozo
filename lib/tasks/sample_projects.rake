@@ -3,6 +3,7 @@ namespace :db do
   task populate: :environment do
     make_users
     make_projects
+    make_records
   end
 
   def make_users
@@ -33,7 +34,16 @@ namespace :db do
       project = Project.create!(name: name,
                                 description: description)
       project.add_user!(User.first)
-      
+    end
+  end
+
+  def make_records
+    project = Project.first
+    user = User.first
+
+    20.times do |n|
+      date = n.days.ago
+      project.records.create!(secretary_id: user.id, date: date)
     end
   end
 end
