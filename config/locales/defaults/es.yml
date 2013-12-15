@@ -1,4 +1,11 @@
 es:
+  views:
+      pagination:
+        first: "&laquo; Primera"
+        last: "Última &raquo;"
+        previous: "&lsaquo; Anterior"
+        next: "Siguiente &rsaquo;"
+        truncate: "..."
   date:
     abbr_day_names:
     - dom

@@ -5,12 +5,13 @@ ruby '2.0.0'
 gem 'rails', '4.0.1'
 
 gem 'bootstrap-sass'
+gem 'wice_grid'
 
 gem 'therubyracer'
 gem 'faker'
 
-gem 'will_paginate', '3.0.4'
-gem 'will_paginate-bootstrap'
+gem 'kaminari'
+gem 'bootstrap-kaminari-views'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'

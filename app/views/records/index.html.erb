@@ -1,5 +1,13 @@
 <% provide(:title, 'Actas del proyecto ' + @project.name) %>
 <div>
   <%= render 'projects/header' %>
-  <div>holiwi</div>
+  <%= grid(@records_grid) do |g|
+      g.column do |task|
+        task.date
+      end
+
+      g.column  do |task|
+        task.secretary.name
+      end
+    end -%>
 </div>
