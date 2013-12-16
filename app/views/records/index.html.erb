@@ -2,11 +2,11 @@
 <div>
   <%= render 'projects/header' %>
   <%= grid(@records_grid) do |g|
-      g.column do |task|
+      g.column :name => 'Fecha', :attribute => 'date' do |task|
         task.date
       end
 
-      g.column  do |task|
+      g.column :name => 'Secretario', :attribute => 'secretary_id' do |task|
         task.secretary.name
       end
     end -%>
