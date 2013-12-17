@@ -12,6 +12,9 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery.ui.all
+//= require jquery.ui.datepicker
+//= require jquery.ui.datepicker-es
 //= require wice_grid
 //= require bootstrap
 //= require turbolinks
