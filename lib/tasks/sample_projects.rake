@@ -29,7 +29,7 @@ namespace :db do
     project.add_user!(User.first)
   
     99.times do |n|
-      name = Faker::Lorem.sentence
+      name = Faker::Lorem.sentence(word_count = 2, supplemental = false , random_words_to_add = 2)
       description = Faker::Lorem.paragraph
       project = Project.create!(name: name,
                                 description: description)
