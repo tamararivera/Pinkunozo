@@ -1,0 +1,29 @@
+<% provide(:title, 'Nueva acta del proyecto ' + @project.name) %>
+<div>
+  <%= render 'projects/header' %>
+  <h2>Nueva acta</h2>
+  <%= form_for [@project, @record], html: {class: "form-inline"} do |f| %>
+  <div class="row">
+    <div class="col-md-4">
+      <%= f.label :date, "Fecha"%>
+      <%= f.date_field :date, class: "form-control" %>
+    </div>
+    <div class="col-md-4">
+      <%= f.label :secretary_id, "Secretario(a)"%>
+      <%= f.collection_select :secretary_id, @project.users, :id, :name,  {:class => "form-control"} %>
+    </div>
+    <div class="col-md-4">
+      <%= f.label :secretary_id, "Secretario(a)"%>
+      <%= f.collection_check_boxes :secretary_id, @project.users, :id, :name,  {:class => "form-control"} %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-4">
+    </div>
+    <div class="col-md-4">
+    </div>
+    <div class="col-md-4">
+    </div>
+  </div>
+  <% end %>
+</div>
