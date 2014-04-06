@@ -2,27 +2,28 @@
 <div>
   <%= render 'projects/header' %>
   <h2>Nueva acta</h2>
-  <%= form_for [@project, @record], html: {class: "form-inline"} do |f| %>
-  <div class="row">
-    <div class="col-md-4">
-      <%= f.label :date, "Fecha"%>
-      <%= f.date_field :date, class: "form-control" %>
-    </div>
-    <div class="col-md-4">
-      <%= f.label :secretary_id, "Secretario(a)"%>
-      <%= f.collection_select :secretary_id, @project.users, :id, :name,  {:class => "form-control"} %>
-    </div>
-    <div class="col-md-4">
-      <%= f.label :secretary_id, "Secretario(a)"%>
-      <%= f.collection_check_boxes :secretary_id, @project.users, :id, :name,  {:class => "form-control"} %>
+  <%= form_for [@project, @record], html: {class: 'form-horizontal'} do |f| %>
+  <div class='form-group'>
+    <%= f.label :date, 'Fecha', class: 'col-sm-2 control-label'%>
+    <div class='col-sm-10'>
+      <%= f.date_field :date, class: 'form-control' %>
     </div>
   </div>
-  <div class="row">
-    <div class="col-md-4">
+  <div class='form-group'>
+    <%= f.label :secretary_id, 'Asistentes', class: 'col-sm-2 control-label'%>
+    <div class='col-sm-10'>
+      <%= f.collection_check_boxes :secretary_id, @project.users, :id, :name do |b|%>
+        <div class='checkbox'>
+          <%=b.label(:"data-value" => b.value) { b.check_box(class: 'checkbox_input') + b.text}%>
+        </div>
+        <%end%>
     </div>
-    <div class="col-md-4">
-    </div>
-    <div class="col-md-4">
+  </div>
+
+  <div class='form-group'>
+    <%= f.label :secretary_id, 'Secretario(a)', class: 'col-sm-2 control-label'%>
+    <div class='col-sm-10'>
+      <%= f.collection_select :secretary_id, @project.users, :id, :name, {},  {class: 'form-control'} %>
     </div>
   </div>
   <% end %>
