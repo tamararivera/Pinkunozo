@@ -12,6 +12,6 @@ class RecordsController < ApplicationController
 
   private 
     def project_params
-      params.require(:record).permit(:date, :secretary_id)
+      params.require(:record).permit(:date, :secretary_id, :attendants)
     end
 end
