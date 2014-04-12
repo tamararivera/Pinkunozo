@@ -6,6 +6,7 @@ gem 'rails', '4.0.1'
 
 gem 'bootstrap-sass'
 gem 'wice_grid'
+gem 'cocoon'
 
 gem 'therubyracer'
 gem 'faker'
@@ -51,10 +52,14 @@ group :doc do
   gem 'sdoc', require: false
 end
 
+group :development, :test do
+  gem 'rspec-rails', '~> 3.0.0.beta'
+end
 
 group :test do
-  gem 'rspec-rails'
   gem 'guard-rspec'
+  gem 'factory_girl_rails', '~> 4.0'
+  gem 'database_cleaner', '~> 1.0.0.RC1'
 end
 
 # Use ActiveModel has_secure_password

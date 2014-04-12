@@ -17,5 +17,6 @@
 //= require jquery.ui.datepicker-es
 //= require wice_grid
 //= require bootstrap
+//= require cocoon
 //= require turbolinks
 //= require_tree .

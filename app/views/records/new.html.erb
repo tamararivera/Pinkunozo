@@ -14,20 +14,25 @@
     <div class='col-sm-4'>
       <%= f.collection_check_boxes :attendants, @project.users, :id, :name do |b|%>
         <div class='checkbox'>
-          <%=b.label(:"data-value" => b.value) { b.check_box(class: 'checkbox_input') + b.text}%>
+          <%=b.label(:"data-value" => b.value) { b.check_box(class: 'checkbox-input') + b.text}%>
         </div>
         <%end%>
     </div>
   </div>
-
   <div class='form-group'>
     <%= f.label :secretary_id, 'Secretario(a)', class: 'col-sm-2 control-label'%>
     <div class='col-sm-4'>
       <%= f.collection_select :secretary_id, @project.users, :id, :name, {},  {class: 'form-control'} %>
     </div>
   </div>
-  <div class='form-group'>
-
+  <h3>Temas</h3>
+  <div class='form-group rounded-corners-border'>
+    <%= f.fields_for :topics do |topic| %>
+      <%=render 'topic_fields', :f => topic %>
+    <% end %>
+    <div class='col-sm-12'>
+      <%=link_to_add_association 'Añadir tema', f, :topics %>
+    </div>
   </div>
   <div class='form-group'>
   </div>

@@ -1,6 +1,15 @@
 // Place all the styles related to the Records controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-.checkbox_input {
+.checkbox-input {
   width: 13px;
+}
+
+.rounded-corners-border{
+  border: 2px lightgray solid;
+  border-radius: 10px;
+}
+
+.delete-button{
+  padding-top: 30px;
 }

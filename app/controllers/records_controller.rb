@@ -10,8 +10,21 @@ class RecordsController < ApplicationController
     @record = Record.new
   end
 
+  def create
+    @project = Project.find(params[:project_id])
+    @record = @project.records.new(record_params)
+    @record.topics.build
+
+    if @record.save
+      flash[:success] = 'Acta grabada con éxito'
+      redirect_to project_records_url
+    else
+      render 'new'
+    end
+  end
+
   private 
-    def project_params
-      params.require(:record).permit(:date, :secretary_id, :attendants)
+    def record_params
+      params.require(:record).permit(:date, :secretary_id, :attendants, topics_attributes: [:id, :name, :discussion, :_destroy])
     end
 end
