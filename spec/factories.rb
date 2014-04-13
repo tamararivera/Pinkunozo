@@ -7,7 +7,7 @@ FactoryGirl.define do
     password_confirmation 'password'
   end
 
-  factory :record do
+  factory :act do
   end
 
   factory :project do

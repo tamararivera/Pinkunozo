@@ -1,21 +1,21 @@
 namespace :db do
-  desc "Fill database with sample user and projects"
+  desc 'Fill database with sample user and projects'
   task populate: :environment do
     make_users
     make_projects
-    make_records
+    make_acts
   end
 
   def make_users
-    User.create!(name: "Tamara Rivera",
-                 email: "tamita.rivera@gmail.com",
-                 password: "memoria",
-                 password_confirmation: "memoria",
+    User.create!(name: 'Tamara Rivera',
+                 email: 'tamita.rivera@gmail.com',
+                 password: 'memoria',
+                 password_confirmation: 'memoria',
                  admin: true)
     99.times do |n|
       name  = Faker::Name.name
       email = "example-#{n+1}@railstutorial.org"
-      password  = "password"
+      password  = 'password'
       User.create!(name: name,
                    email: email,
                    password: password,
@@ -24,8 +24,8 @@ namespace :db do
   end
 
   def make_projects
-    project = Project.create!(name: "Proyecto Fondef",
-                              description: "Este es un proyecto fabuloso")
+    project = Project.create!(name: 'Proyecto Fondef',
+                              description: 'Este es un proyecto fabuloso')
     project.add_user!(User.first)
   
     99.times do |n|
@@ -37,13 +37,13 @@ namespace :db do
     end
   end
 
-  def make_records
+  def make_acts
     project = Project.first
     user = User.first
 
     20.times do |n|
       date = n.days.ago
-      project.records.create!(secretary_id: user.id, date: date)
+      project.acts.create!(secretary_id: user.id, date: date)
     end
   end
 end

@@ -3,7 +3,7 @@ class User < ActiveRecord::Base
   has_many :projects, through: :user_projects
   
   has_many :user_records, dependent: :destroy
-  has_many :records, through: :user_records
+  has_many :acts, through: :user_records
 
   has_secure_password
 

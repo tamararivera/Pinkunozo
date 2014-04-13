@@ -3,9 +3,10 @@ class CreateTopics < ActiveRecord::Migration
     create_table :topics do |t|
       t.string :name
       t.string :discussion
-      t.belongs_to :record
+      t.integer :record_id
 
       t.timestamps
     end
+    add_index :topics, [:record_id]
   end
 end

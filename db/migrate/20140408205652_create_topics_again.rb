@@ -3,7 +3,7 @@ class CreateTopicsAgain < ActiveRecord::Migration
     create_table :topics do |t|
       t.string :name
       t.string :discussion
-      t.belongs_to :record
+      t.belongs_to :act
 
       t.timestamps
     end

@@ -2,7 +2,7 @@
 <div>
   <%= render 'projects/header' %>
   <h2>Nueva acta</h2>
-  <%= form_for [@project, @record], html: {class: 'form-horizontal'} do |f| %>
+  <%= form_for @act, url: project_acts_path, method: :post, html: {class: 'form-horizontal'} do |f| %>
   <div class='form-group'>
     <%= f.label :date, 'Fecha', class: 'col-sm-2 control-label'%>
     <div class='col-sm-4'>

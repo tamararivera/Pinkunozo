@@ -1,3 +1,3 @@
 class Topic < ActiveRecord::Base
-  belongs_to :record
+  belongs_to :act
 end

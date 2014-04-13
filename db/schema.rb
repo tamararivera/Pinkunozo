@@ -11,7 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140408205652) do
+ActiveRecord::Schema.define(version: 20140413014537) do
+
+  create_table "acts", force: true do |t|
+    t.integer  "project_id"
+    t.integer  "secretary_id"
+    t.date     "date"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "acts", ["project_id", "date"], name: "index_acts_on_project_id_and_date"
 
   create_table "projects", force: true do |t|
     t.string   "name"
@@ -20,20 +30,10 @@ ActiveRecord::Schema.define(version: 20140408205652) do
     t.datetime "updated_at"
   end
 
-  create_table "records", force: true do |t|
-    t.integer  "project_id"
-    t.integer  "secretary_id"
-    t.date     "date"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "records", ["project_id", "date"], name: "index_records_on_project_id_and_date", unique: true
-
   create_table "topics", force: true do |t|
     t.string   "name"
     t.string   "discussion"
-    t.integer  "record_id"
+    t.integer  "act_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

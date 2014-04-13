@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe RecordsController do
+describe ActsController do
 
   before do
     SessionsHelper.sign_in FactoryGirl.create(:user)
@@ -9,12 +9,12 @@ describe RecordsController do
   describe '#create' do
 
     let(:project) { FactoryGirl.build(:project) }
-    let(:record) { FactoryGirl.attributes_for(:record) }
+    let(:act) { FactoryGirl.attributes_for(:act) }
 
     before { project.save }
 
     it 'assigns and store the record topics' do
-      post :create, project_id: project.id, record: record
+      post :create, project_id: project.id, act: act
       expect(response.status).to be(200)
     end
   end

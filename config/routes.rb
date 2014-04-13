@@ -2,7 +2,7 @@ Prototipo::Application.routes.draw do
   resources :users
   resources :sessions, only: [:new, :create, :destroy]
   resources :projects do
-    resources :records
+    resources :acts
   end
 
   root to: 'static_pages#home'
