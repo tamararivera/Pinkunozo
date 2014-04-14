@@ -1,17 +1,23 @@
 <% provide(:title, 'Actas del proyecto ' + @project.name) %>
 <div>
   <%= render 'projects/header' %>
-  <%= grid(@records_grid) do |g|
-      g.column :name => 'Fecha', :attribute => 'date' do |record|
-        record.date
+  <%= grid(@acts_grid) do |g|
+      g.column :name => 'Fecha', :attribute => 'date' do |act|
+        act.date
       end
 
-      g.column :name => 'Secretario', :attribute => 'secretary_id' do |record|
-        record.secretary.name
+      g.column :name => 'Secretario', :attribute => 'secretary_id' do |act|
+        act.secretary.name
       end
 
-      g.column :name => 'Temas' do |record|
-        record.number_of_topics 
+      g.column :name => 'Temas' do |act|
+        act.topics.count
+      end
+
+      g.column :name => 'Presentes' do |act|
+        #act.attendants.count
+        #act.attendants.each { |user| gravatar_for user }
+        #<img alt="Tamara Rivera" class="gravatar" src="https://secure.gravatar.com/avatar/a2fbe30c4d672011afd9239ea1202a6e?s=52">
       end
     end -%>
 

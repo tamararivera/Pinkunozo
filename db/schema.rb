@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140413014537) do
+ActiveRecord::Schema.define(version: 20140413024531) do
 
   create_table "acts", force: true do |t|
     t.integer  "project_id"
@@ -38,6 +38,17 @@ ActiveRecord::Schema.define(version: 20140413014537) do
     t.datetime "updated_at"
   end
 
+  create_table "user_acts", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "act_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "user_acts", ["act_id"], name: "index_user_acts_on_act_id"
+  add_index "user_acts", ["user_id", "act_id"], name: "index_user_acts_on_user_id_and_act_id", unique: true
+  add_index "user_acts", ["user_id"], name: "index_user_acts_on_user_id"
+
   create_table "user_projects", force: true do |t|
     t.integer  "user_id"
     t.integer  "project_id"
@@ -48,17 +59,6 @@ ActiveRecord::Schema.define(version: 20140413014537) do
   add_index "user_projects", ["project_id"], name: "index_user_projects_on_project_id"
   add_index "user_projects", ["user_id", "project_id"], name: "index_user_projects_on_user_id_and_project_id", unique: true
   add_index "user_projects", ["user_id"], name: "index_user_projects_on_user_id"
-
-  create_table "user_records", force: true do |t|
-    t.integer  "user_id"
-    t.integer  "record_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "user_records", ["record_id"], name: "index_user_records_on_record_id"
-  add_index "user_records", ["user_id", "record_id"], name: "index_user_records_on_user_id_and_record_id", unique: true
-  add_index "user_records", ["user_id"], name: "index_user_records_on_user_id"
 
   create_table "users", force: true do |t|
     t.string   "name"

@@ -1,4 +1,4 @@
-class UserRecord < ActiveRecord::Base
+class UserAct < ActiveRecord::Base
   belongs_to :user
   belongs_to :act
 

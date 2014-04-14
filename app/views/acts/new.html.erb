@@ -10,9 +10,9 @@
     </div>
   </div>
   <div class='form-group'>
-    <%= f.label :attendants, 'Asistentes', class: 'col-sm-2 control-label'%>
+    <%= f.label :attendant_ids, 'Asistentes', class: 'col-sm-2 control-label'%>
     <div class='col-sm-4'>
-      <%= f.collection_check_boxes :attendants, @project.users, :id, :name do |b|%>
+      <%= f.collection_check_boxes :attendant_ids, @project.users, :id, :name do |b|%>
         <div class='checkbox'>
           <%=b.label(:"data-value" => b.value) { b.check_box(class: 'checkbox-input') + b.text}%>
         </div>
