@@ -1,12 +1,16 @@
 <%= form_for([@project, @act], html: {class: 'form-horizontal'}) do |f| %>
     <div class='form-group'>
-      <%= f.label :date, 'Fecha', class: 'col-sm-2 control-label'%>
+      <%= f.label :date, 'Fecha', class: 'col-sm-1 control-label'%>
       <div class='col-sm-4'>
         <%= f.date_field :date, class: 'form-control' %>
       </div>
+      <%= f.label :secretary_id, 'Secretario(a)', class: 'col-sm-1 control-label'%>
+      <div class='col-sm-4'>
+        <%= f.collection_select :secretary_id, @project.users, :id, :name, {},  {class: 'form-control'} %>
+      </div>
     </div>
     <div class='form-group'>
-      <%= f.label :attendant_ids, 'Asistentes', class: 'col-sm-2 control-label'%>
+      <%= f.label :attendant_ids, 'Asistentes', class: 'col-sm-1 control-label'%>
       <div class='col-sm-4'>
         <%= f.collection_check_boxes :attendant_ids, @project.users, :id, :name do |b|%>
             <div class='checkbox'>
@@ -16,10 +20,7 @@
       </div>
     </div>
     <div class='form-group'>
-      <%= f.label :secretary_id, 'Secretario(a)', class: 'col-sm-2 control-label'%>
-      <div class='col-sm-4'>
-        <%= f.collection_select :secretary_id, @project.users, :id, :name, {},  {class: 'form-control'} %>
-      </div>
+
     </div>
     <h3>Temas</h3>
     <div class='form-group rounded-corners-border'>
@@ -40,7 +41,7 @@
       </div>
     </div>
     <div class='form-group'>
-      <div class='col-sm-offset-2 col-sm-10'>
+      <div class='col-sm-12'>
         <button type='submit' class='btn btn-primary'>Guardar</button>
       </div>
     </div>
