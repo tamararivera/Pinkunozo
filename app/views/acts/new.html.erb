@@ -34,9 +34,14 @@
       <%=link_to_add_association 'Añadir tema', f, :topics %>
     </div>
   </div>
-  <div class='form-group'>
-  </div>
-  <div class='form-group'>
+  <h3>Síntesis</h3>
+  <div class='form-group rounded-corners-border'>
+    <%= f.fields_for :milestones do |milestone| %>
+        <%=render 'milestone_fields', :f => milestone %>
+    <% end %>
+    <div class='col-sm-12'>
+        <%=link_to_add_association 'Añadir hito', f, :milestones %>
+    </div>
   </div>
   <div class='form-group'>
     <div class='col-sm-offset-2 col-sm-10'>

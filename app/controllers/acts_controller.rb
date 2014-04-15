@@ -28,6 +28,9 @@ class ActsController < ApplicationController
 
   private 
     def act_params
-      params.require(:act).permit(:date, :secretary_id, topics_attributes: [:id, :name, :discussion, :_destroy])
+      params.require(:act).permit(:date, :secretary_id,
+                                  topics_attributes: [:id, :name, :discussion, :_destroy],
+                                  milestones_attributes: [:id, :name, :description,
+                                                          :user_id, :type_of_milestone, :status])
     end
 end
