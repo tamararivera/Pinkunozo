@@ -26,6 +26,23 @@ class ActsController < ApplicationController
     end
   end
 
+  def edit
+    @project = Project.find(params[:project_id])
+    @act = Act.find(params[:id])
+  end
+
+  def update
+    @project = Project.find(params[:project_id])
+    @act = Act.find(params[:id])
+
+    if @act.update_attributes(act_params)
+      flash[:success] = 'Acta grabada con éxito'
+      redirect_to project_acts_url
+    else
+      render 'edit'
+    end
+  end
+
   private 
     def act_params
       params.require(:act).permit(:date, :secretary_id,

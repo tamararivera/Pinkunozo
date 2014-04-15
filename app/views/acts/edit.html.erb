@@ -1,0 +1,6 @@
+<% provide(:title, 'Acta del proyecto' + @project.name) %>
+<div>
+  <%= render 'projects/header' %>
+  <h2>Acta del <%= @act.date %></h2>
+  <%= render 'act_form'%>
+</div>
