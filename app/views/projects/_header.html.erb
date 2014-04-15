@@ -1,8 +1,13 @@
 <div>
   <h1><%= @project.name %></h1>
-  <p>
-  <%= @project.description %>
-  </p>
+  <div class='row'>
+    <div class='col-sm-11'>
+      <%= @project.description %>
+    </div>
+    <div class='col-sm-1'>
+      <%= link_to 'Editar', edit_project_path(@project), class: 'btn btn-default edit-project-button' %>
+    </div>
+  </div>
   <div class="btn-group btn-group-justified">
     <%= link_to 'Actas', project_acts_path(@project), class: 'btn btn-default' %>
     <%= link_to 'Libro de acuerdos', '#', class: 'btn btn-default' %>
