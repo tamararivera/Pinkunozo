@@ -21,5 +21,7 @@ module Prototipo
     config.i18n.enforce_available_locales = true
     config.i18n.load_path += Dir[Rails.root.join('config', 'locales', '**', '*.{rb,yml}')]
     config.i18n.default_locale = :es
+
+    config.serve_static_assets = true
   end
 end
