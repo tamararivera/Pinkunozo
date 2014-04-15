@@ -8,6 +8,8 @@ gem 'bootstrap-sass'
 gem 'wice_grid'
 gem 'cocoon'
 
+gem 'sprockets_better_errors'
+
 gem 'therubyracer'
 gem 'faker'
 
