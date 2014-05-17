@@ -34,9 +34,12 @@ class ActsController < ApplicationController
   def update
     @project = Project.find(params[:project_id])
     @act = Act.find(params[:id])
+  
+    users = User.find(params[:act][:attendant_ids].reject(&:empty?))
+    @act.attendants << users
 
     if @act.update_attributes(act_params)
-      flash[:success] = 'Acta grabada con éxito'
+      flash[:success] = 'Acta actualizada con éxito'
       redirect_to project_acts_url
     else
       render 'edit'
