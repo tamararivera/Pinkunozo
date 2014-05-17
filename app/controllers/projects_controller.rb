@@ -6,12 +6,14 @@ class ProjectsController < ApplicationController
 
   def new
     @project = Project.new
+    @project.users << current_user
   end
 
   def create
     @project = Project.new(project_params)
 
     if @project.save
+
       users = User.find(params[:project][:user_ids].reject(&:empty?))
       @project.users << users
 
