@@ -1,13 +1,32 @@
-<div class='nested-fields'>
-  <div class='col-sm-5 field'>
-    <%= f.label :name, 'Nombre', class: 'control-label'%>
-    <%= f.text_field :name, class: 'form-control' %>
-  </div>
-  <div class='col-sm-6 field'>
-    <%= f.label :discussion, 'Discusión', class: 'control-label'%>
-    <%= f.text_area :discussion, class: 'form-control' %>
-  </div>
-  <div class='col-sm-1'>
-<%= link_to_remove_association "<span class='glyphicon glyphicon-trash delete-button'></span>".html_safe, f, class: 'btn-lg' %>
+<div class='row'>
+  <div class='nested-fields col-sm-12'>
+    <div class='col-sm-6'>
+      <div class='col-sm-11 field'>
+        <%= f.label :name, 'Nombre', class: 'control-label'%>
+        <%= f.text_field :name, class: 'form-control' %>
+      </div>
+      <div class='col-sm-1'>
+        <%= link_to_remove_association "<span class='glyphicon glyphicon-trash delete-button'></span>".html_safe, f, class: 'btn-lg' %>
+      </div>
+      <div class='col-sm-12 field'>
+        <%= f.label :discussion, 'Discusión', class: 'control-label'%>
+        <%= f.text_area :discussion, class: 'form-control' %>
+      </div>
+      <div class='col-sm-12'>
+        <%= f.fields_for :milestones do |milestone| %>
+        <%=render 'milestone_fields', :f => milestone %>
+        <% end %>
+        <div class='col-sm-12'>
+          <% milestone_node = f.object_name.gsub(/\]\[|[^-a-zA-Z0-9:.]/,"_").sub(/_$/,"") + '_milestones'  %>
+          <%=link_to_add_association 'Añadir elemento', f, :milestones, 
+          :'data-association-insertion-node' => '#' + milestone_node
+          %>
+        </div>
+      </div>
+    </div>
+    <div class='col-sm-6'>
+      <div id='<%= milestone_node%>'>
+      </div>
+    </div>
   </div>
 </div>

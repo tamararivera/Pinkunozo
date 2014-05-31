@@ -19,7 +19,7 @@ class ActsController < ApplicationController
 
 
     if @project.acts<<@act
-      flash[:success] = 'Acta grabada con éxito'
+      flash[:success] = 'Acta creada con éxito'
       redirect_to project_acts_url
     else
       render 'new'

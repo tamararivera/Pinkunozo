@@ -8,7 +8,4 @@ class Act < ActiveRecord::Base
   has_many :topics
   accepts_nested_attributes_for :topics
 
-  has_many :milestones
-  accepts_nested_attributes_for :milestones
-
 end
