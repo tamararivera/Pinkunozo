@@ -10,8 +10,8 @@
   </div>
   <div class="btn-group btn-group-justified">
     <%= link_to 'Actas', project_acts_path(@project), class: 'btn btn-default' %>
-    <%= link_to 'Libro de acuerdos', '#', class: 'btn btn-default' %>
-    <%= link_to 'Síntesis díalogica', '#', class: 'btn btn-default' %>
+    <%= link_to 'Libro de acuerdos', project_agreements_path(@project), class: 'btn btn-default' %>
+    <%= link_to 'Síntesis díalogica', project_milestones_path(@project), class: 'btn btn-default' %>
     <%= link_to 'Acciones en curso', '#', class: 'btn btn-default' %>
     <%= link_to 'Reportes de gestión', '#', class: 'btn btn-default' %>
   </div>
