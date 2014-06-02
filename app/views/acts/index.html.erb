@@ -5,7 +5,7 @@
   <%= grid(@acts_grid, upper_pagination_panel: true, show_filters: :when_filtered) do |g|
       g.column name: 'Fecha', attribute: 'date' 
 
-      g.column name: 'Secretario' do |act|
+      g.column name: 'Secretario', attribute: 'name', model: User do |act|
         act.secretary.name
       end
 

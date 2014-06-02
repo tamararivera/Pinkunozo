@@ -6,7 +6,7 @@
 
       g.column name: 'Tipo de elemento', attribute: 'type_of_milestone'
 
-      g.column name: 'Responsable' do |milestone|
+      g.column name: 'Responsable', attribute: 'name', model: User do |milestone|
         milestone.user.name
       end
 

@@ -5,7 +5,8 @@ class MilestonesController < ApplicationController
     @project = Project.find(params[:project_id])
 
     milestones = Milestone.joins(topic: :act).where('acts.id' => Act.where(project_id: @project.id).pluck(:id))
-    @milestones_grid = initialize_grid(milestones)
+    @milestones_grid = initialize_grid(milestones,
+      include: :user)
   end
 
   def agreements
@@ -14,6 +15,7 @@ class MilestonesController < ApplicationController
     milestones = Milestone.joins(topic: :act).where('acts.id' => Act.where(project_id: @project.id).pluck(:id))
     agreements = milestones.where(type_of_milestone: 'Acuerdo')
 
-    @agreements_grid = initialize_grid(agreements)
+    @agreements_grid = initialize_grid(agreements,
+      include: :user)
   end
 end 

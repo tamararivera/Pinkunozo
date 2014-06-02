@@ -2,7 +2,8 @@ class ActsController < ApplicationController
   before_action :signed_in_user
   def index
     @project = Project.find(params[:project_id])
-    @acts_grid = initialize_grid(Act.where(project_id: @project.id))
+    @acts_grid = initialize_grid(Act.where(project_id: @project.id),
+      include: :secretary)
   end
   
   def new
