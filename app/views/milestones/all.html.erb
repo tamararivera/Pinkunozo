@@ -14,7 +14,7 @@
         milestone.user.name
       end
 
-      g.column :name => 'Edad', :attribute => 'date_of_creation' do |milestone|
+      g.column :name => 'Edad' do |milestone|
         distance_of_time_in_words_to_now(milestone.topic.act.date)
       end
 
