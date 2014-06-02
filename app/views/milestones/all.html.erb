@@ -2,25 +2,19 @@
 <div>
   <%= render 'projects/header' %>
   <%= grid(@milestones_grid, upper_pagination_panel: true, show_filters: :when_filtered) do |g|
-      g.column :name => 'Nombre', :attribute => 'name' do |milestone|
-        milestone.name
-      end
+      g.column name: 'Nombre', attribute: 'name'
 
-      g.column :name => 'Tipo de elemento', :attribute => 'type_of_milestone' do |milestone|
-        milestone.type_of_milestone
-      end
+      g.column name: 'Tipo de elemento', attribute: 'type_of_milestone'
 
-      g.column :name => 'Responsable', :attribute => 'user_id' do |milestone|
+      g.column name: 'Responsable' do |milestone|
         milestone.user.name
       end
 
-      g.column :name => 'Edad' do |milestone|
+      g.column name: 'Edad' do |milestone|
         distance_of_time_in_words_to_now(milestone.topic.act.date)
       end
 
-      g.column :name => 'Estado', :attribute => 'status' do |milestone|
-        milestone.status
-      end
+      g.column name: 'Estado', attribute: 'status'
 
       g.column do |act|
         link_to('Ver', )
