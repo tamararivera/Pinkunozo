@@ -19,6 +19,7 @@ class ActsController < ApplicationController
       flash[:success] = 'Acta creada con éxito'
       redirect_to project_acts_url
     else
+      flash[:error] = 'El formulario contiene errores'
       render 'new'
     end
   end
@@ -36,6 +37,7 @@ class ActsController < ApplicationController
       flash[:success] = 'Acta actualizada con éxito'
       redirect_to project_acts_url
     else
+      flash[:error] = 'El formulario contiene errores'
       render 'edit'
     end
   end
