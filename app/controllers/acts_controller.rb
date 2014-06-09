@@ -15,10 +15,6 @@ class ActsController < ApplicationController
     @project = Project.find(params[:project_id])
     @act = Act.create(act_params)
 
-    users = User.find(params[:act][:attendant_ids].reject(&:empty?))
-    @act.attendants << users
-
-
     if @project.acts<<@act
       flash[:success] = 'Acta creada con éxito'
       redirect_to project_acts_url
@@ -46,7 +42,7 @@ class ActsController < ApplicationController
 
   private 
     def act_params
-      params.require(:act).permit(:date, :secretary_id,
+      params.require(:act).permit(:date, :secretary_id, attendant_ids: [],
                                   topics_attributes: [:id, :name, :discussion, :_destroy,
                                     milestones_attributes: [:id, :name, :description,
                                                           :user_id, :type_of_milestone, :status, :_destroy]])

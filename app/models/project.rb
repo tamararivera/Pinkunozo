@@ -1,7 +1,7 @@
 class Project < ActiveRecord::Base
-  has_many :user_projects, dependent: :destroy
-  has_many :users, through: :user_projects
-  
+  has_many :user_projects, validate: false 
+  has_many :participants, through: :user_projects, source: :user
+
   has_many :acts
 
   def add_user!(user)
