@@ -5,6 +5,7 @@ Prototipo::Application.routes.draw do
     resources :acts
     get 'milestones', to: 'milestones#all'
     get 'agreements', to: 'milestones#agreements'
+    get 'reports', to: 'milestones#reports'
   end
 
   root to: 'static_pages#home'
