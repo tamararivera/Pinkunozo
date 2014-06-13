@@ -7,6 +7,7 @@ gem 'rails', '4.0.1'
 gem 'bootstrap-sass'
 gem 'wice_grid'
 gem 'cocoon'
+gem 'chartkick'
 
 gem 'sprockets_better_errors'
 

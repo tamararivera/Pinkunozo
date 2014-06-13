@@ -19,4 +19,5 @@
 //= require bootstrap
 //= require cocoon
 //= require turbolinks
+//= require chartkick
 //= require_tree .
