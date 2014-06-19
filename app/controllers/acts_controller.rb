@@ -26,7 +26,19 @@ class ActsController < ApplicationController
 
   def edit
     @project = Project.find(params[:project_id])
-    @act = Act.find(params[:id])
+    actId = params[:id]
+    desiredPage = params[:page]
+    if (desiredPage.nil? || desiredPage.blank?)
+      @act = Act.find(actId)
+      actPage = Act.where(project_id: @project.id).order(:date).map(&:id).index(actId.to_f) + 1
+      @acts = Act.where(project_id: @project.id).order(:date).page(actPage).per(1)
+    else
+      @act = Act.where(project_id: @project.id).order(:date)[desiredPage.to_f - 1]
+      @acts = Act.where(project_id: @project.id).order(:date).page(desiredPage).per(1)
+    end
+    
+    
+    
   end
 
   def update
