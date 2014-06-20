@@ -1,7 +1,11 @@
 <% provide(:title, 'Acta del proyecto ' + @project.name) %>
 <div>
   <%= render 'projects/header' %>
-  <%= paginate @acts%>
+  <div class="row">
+    <div class="col-sm-4 col-sm-offset-4">
+      <%= paginate @acts%>
+    </div>
+  </div>
   <h2>Acta del <%= @act.date %></h2>
   <%= render 'act_form'%>
 </div>
