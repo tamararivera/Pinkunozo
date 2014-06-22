@@ -3,7 +3,9 @@
   <%= render 'projects/header' %>
   <%= link_to "Nueva acta", new_project_act_path(@project), class: "btn btn-primary new-act-button" %>
   <%= grid(@acts_grid, upper_pagination_panel: true, show_filters: :when_filtered) do |g|
-      g.column name: 'Fecha', attribute: 'date' 
+      g.column name: 'Fecha', attribute: 'date' do |act|
+        act.date  
+      end
 
       g.column name: 'Secretario', attribute: 'name', model: User do |act|
         act.secretary.name

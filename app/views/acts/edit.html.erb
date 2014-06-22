@@ -6,6 +6,6 @@
       <%= paginate @acts%>
     </div>
   </div>
-  <h2>Acta del <%= @act.date %></h2>
+  <h2>Acta del <%= l @act.date , format: :long %></h2>
   <%= render 'act_form'%>
 </div>
