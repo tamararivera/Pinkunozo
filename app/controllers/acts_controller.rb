@@ -6,6 +6,25 @@ class ActsController < ApplicationController
       include: :secretary)
   end
   
+  def show
+    @project = Project.find(params[:project_id])
+    actId = params[:id]
+    desiredPage = params[:page]
+    if (desiredPage.nil? || desiredPage.blank?)
+      @act = Act.find(actId)
+      actPage = Act.where(project_id: @project.id).order(:date).map(&:id).index(actId.to_f) + 1
+      @acts = Act.where(project_id: @project.id).order(:date).page(actPage).per(1)
+    else
+      @act = Act.where(project_id: @project.id).order(:date)[desiredPage.to_f - 1]
+      @acts = Act.where(project_id: @project.id).order(:date).page(desiredPage).per(1)
+    end
+  end 
+
+  def modal
+    @project = Project.find(params[:project_id])
+    @milestones = Milestone.joins(topic: :act).where('acts.id' => Act.where(project_id: @project.id).pluck(:id))
+  end
+
   def new
     @project = Project.find(params[:project_id])
     @act = Act.new
@@ -37,13 +56,17 @@ class ActsController < ApplicationController
       @acts = Act.where(project_id: @project.id).order(:date).page(desiredPage).per(1)
     end
     
-    
-    
   end
 
   def update
     @project = Project.find(params[:project_id])
-    @act = Act.find(params[:id])
+    actId = params[:id]
+    desiredPage = params[:page]
+    if (desiredPage.nil? || desiredPage.blank?)
+      @act = Act.find(actId)
+    else
+      @act = Act.where(project_id: @project.id).order(:date)[desiredPage.to_f - 1]
+    end
 
     if @act.update_attributes(act_params)
       flash[:success] = 'Acta actualizada con éxito'
