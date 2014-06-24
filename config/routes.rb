@@ -2,7 +2,9 @@ Prototipo::Application.routes.draw do
   resources :users
   resources :sessions, only: [:new, :create, :destroy]
   resources :projects do
-    resources :acts
+    resources :acts do
+      get 'modal'
+    end
   
     get 'milestones', to: 'milestones#all'
     get 'agreements', to: 'milestones#agreements'

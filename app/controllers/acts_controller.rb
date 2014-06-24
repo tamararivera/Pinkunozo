@@ -1,5 +1,6 @@
 class ActsController < ApplicationController
   before_action :signed_in_user
+  layout false, only: [:modal] 
   def index
     @project = Project.find(params[:project_id])
     @acts_grid = initialize_grid(Act.where(project_id: @project.id),
@@ -21,7 +22,10 @@ class ActsController < ApplicationController
   end 
 
   def modal
+
     @project = Project.find(params[:project_id])
+    @acts = Act.where(project_id: @project.id)
+    @selectedAct = @acts.first
     @milestones = Milestone.joins(topic: :act).where('acts.id' => Act.where(project_id: @project.id).pluck(:id))
   end
 

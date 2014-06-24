@@ -27,7 +27,7 @@
     { :class => 'form-control' } %>
   </div>
   <div class='col-sm-11'>
-    <a data-toggle="modal" data-target="#myModal<%= f.object.id %>" class="btn btn-primary">Definir elemento que lo genera</a> 
+    <a data-toggle="modal" data-target="#myModal<%= f.object.id %>" href="<%= project_act_modal_url(act_id: 1) %>" class="btn btn-primary">Definir elemento que lo genera</a> 
   </div>
   <div class='horizontal-divider col-sm-10 col-sm-offset-1'>
   </div>
@@ -36,17 +36,6 @@
 <div class="modal fade" id="myModal<%= f.object.id %>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
-      </div>
-      <div class="modal-body">
-        <%= render partial: 'modal', locals: {milestone: f.object}%>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
-      </div>
     </div>
   </div>
 </div>
