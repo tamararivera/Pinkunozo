@@ -1,45 +1,26 @@
 <html>
 <head>
   <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-  <title>Remote file for Bootstrap Modal</title>  
+  <title>Selecciona un elemento del dialogo de actas anteriores</title>  
 </head>
 <body>
   <div class="modal-header">
     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-    <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+    <h4 class="modal-title">Selecciona un elemento del dialogo de actas anteriores</h4>
   </div>
   <div class="modal-body">
-    <div>
-
-      <% @selectedAct.topics.each do |topic| %>
-      <dl>
-        <dt>Nombre</dt>
-        <dd>topic.name</dd>
-
-        <dt>Dicusión</dt>
-        <dd>topic.discussion</dd>
-      </dl>
-
-      <%topic.milestones.each do |milestone|%>
-      <dl>
-        <dt>Nombre</dt>
-        <dd>milestone.name</dd>
-        <dt>Descripción</dt>
-        <dd>milestone.description</dd>
-        <dt>Responsable</dt>
-        <dd>milestone.user.name</dd>
-        <dt>Tipo de elemento</dt>
-        <dd>milestone.type_of_milestone</dd>
-        <dt>Estado</dt>
-        <dd>milestone.status</dd>
-      </dl>
-      <%end%>
-      <%end%>
+    <div class="row">
+      <div id="modal-paginator" class="col-sm-6 col-sm-offset-3">
+        <%= paginate @acts, :remote => true, :theme => 'twitter-bootstrap-3', :pagination_class => 'pagination-sm'%>
+      </div>
+    </div>
+    <div id="modal-act">
+      <%= render 'select_milestone' %>
     </div>
   </div>
   <div class="modal-footer">
-    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-    <button type="button" class="btn btn-primary">Save changes</button>
+    <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+    <button type="button" class="btn btn-primary">Guardar</button>
   </div>
 </body>
 </html>

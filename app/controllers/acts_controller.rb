@@ -3,7 +3,7 @@ class ActsController < ApplicationController
   layout false, only: [:modal] 
   def index
     @project = Project.find(params[:project_id])
-    @acts_grid = initialize_grid(Act.where(project_id: @project.id),
+    @acts_grid = initialize_grid(Act.where(project_id: @project.id).order(:date),
       include: :secretary)
   end
   
@@ -22,11 +22,21 @@ class ActsController < ApplicationController
   end 
 
   def modal
-
     @project = Project.find(params[:project_id])
-    @acts = Act.where(project_id: @project.id)
-    @selectedAct = @acts.first
-    @milestones = Milestone.joins(topic: :act).where('acts.id' => Act.where(project_id: @project.id).pluck(:id))
+    #actId = 1
+    desiredPage = params[:page]
+    if (desiredPage.nil? || desiredPage.blank?)
+      posibleActs = Act.where(project_id: @project.id).order(:date)
+      @acts = posibleActs.page(1).per(1)
+      @act = posibleActs.first
+    else
+      @act = Act.where(project_id: @project.id).order(:date)[desiredPage.to_f - 1]
+      @acts = Act.where(project_id: @project.id).order(:date).page(desiredPage).per(1)
+    end
+    respond_to do |format|
+      format.js
+      format.html
+    end
   end
 
   def new
@@ -59,7 +69,10 @@ class ActsController < ApplicationController
       @act = Act.where(project_id: @project.id).order(:date)[desiredPage.to_f - 1]
       @acts = Act.where(project_id: @project.id).order(:date).page(desiredPage).per(1)
     end
-    
+    respond_to do |format|
+      format.js
+      format.html
+    end
   end
 
   def update
