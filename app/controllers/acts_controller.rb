@@ -23,15 +23,14 @@ class ActsController < ApplicationController
 
   def modal
     @project = Project.find(params[:project_id])
-    #actId = 1
+    posibleActs = Act.where(project_id: @project.id).joins(topics: :milestones).order(:date).uniq
     desiredPage = params[:page]
     if (desiredPage.nil? || desiredPage.blank?)
-      posibleActs = Act.where(project_id: @project.id).order(:date)
       @acts = posibleActs.page(1).per(1)
       @act = posibleActs.first
     else
-      @act = Act.where(project_id: @project.id).order(:date)[desiredPage.to_f - 1]
-      @acts = Act.where(project_id: @project.id).order(:date).page(desiredPage).per(1)
+      @act = posibleActs[desiredPage.to_f - 1]
+      @acts = posibleActs.page(desiredPage).per(1)
     end
     respond_to do |format|
       format.js
