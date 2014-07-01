@@ -9,6 +9,7 @@ Prototipo::Application.routes.draw do
     get 'milestones', to: 'milestones#all'
     get 'agreements', to: 'milestones#agreements'
     get 'reports', to: 'milestones#reports'
+    get 'milestones/:milestone_id', to: 'milestones#show', as: 'show_milestone'
   end
 
   root to: 'static_pages#home'

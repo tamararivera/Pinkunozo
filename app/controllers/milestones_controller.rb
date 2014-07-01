@@ -27,4 +27,9 @@ class MilestonesController < ApplicationController
 
     @attendants = Act.where(project_id: @project.id).joins(:attendants)
   end
+
+  def show
+    @project = Project.find(params[:project_id])
+    @milestone = Milestone.find(params[:milestone_id])
+  end
 end 
