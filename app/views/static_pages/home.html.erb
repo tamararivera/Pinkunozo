@@ -1,15 +1,23 @@
-<div class="center hero-unit">
+<div class="well">
   <%if signed_in? %>
-    <%= link_to "Nuevo proyecto", new_project_path, class: "btn btn-primary" %>
-    <div class="col-md-12">  
-      <%if @projects.any?%>
-        <div class="row">
-          <%= render partial: 'shared/project', collection: @projects %>
-        </div>
-      <%end%>
+    <div class="row">
+      <div class="col-md-3">
+        <%= link_to "Nuevo proyecto", new_project_path, class: "btn btn-primary" %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">  
+        <%if @projects.any?%>
+          <div class="row">
+            <%= render partial: 'shared/project', collection: @projects %>
+          </div>
+        <%end%>
+      </div>
     </div>
   <%else %>
-  <h1>Bienvenido a Pinkunozo</h1>
-  <%= link_to "Identificarse", signin_path, class: "btn btn-lg btn-primary" %>
+    <h1>Bienvenido a Pinkunozo</h1>
+    <div class="text-center">
+      <%= link_to "Identificarse", signin_path, class: "btn btn-lg btn-primary" %>
+    </div>
   <%end %>
 </div>

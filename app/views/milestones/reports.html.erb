@@ -1,18 +1,17 @@
 <%= javascript_include_tag "//www.google.com/jsapi", "chartkick"%>
 <% provide(:title, 'Acuerdos para el proyecto' + @project.name) %>
-<div>
+
+<div class="well">
+  <%= render 'projects/header' %>
   <div class="well">
-    <%= render 'projects/header' %>
-    <div class="well">
-      <div class='row'>
-        <div class='col-sm-6'>
-          <h2>Compromisos según estado</h2>
-          <%= column_chart @commitments.group(:status).count, colors: ["pink"] %>
-        </div>
-        <div class='col-sm-6'>
-          <h2>Asistencia a las reuniones</h2>
-          <%= line_chart @attendants.group(:date).count, colors: ["pink"] %>
-        </div>
+    <div class='row'>
+      <div class='col-sm-6'>
+        <h2>Compromisos según estado</h2>
+        <%= column_chart @commitments.group(:status).count, colors: ["pink"] %>
+      </div>
+      <div class='col-sm-6'>
+        <h2>Asistencia a las reuniones</h2>
+        <%= line_chart @attendants.group(:date).count, colors: ["pink"] %>
       </div>
     </div>
   </div>

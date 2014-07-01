@@ -1881,6 +1881,7 @@ fieldset[disabled] .btn-default.active {
   background-color: #9e2062;
   border-color: #891c55;
   background-image: none;
+  margin-top: 10px;
 }
 .btn-primary:hover,
 .btn-primary:focus,
@@ -2146,7 +2147,7 @@ input[type="button"].btn-block {
   -webkit-transition: height 0.35s ease;
   transition: height 0.35s ease;
 }
-@font-face {
+/*@font-face {
   font-family: 'Glyphicons Halflings';
   src: url('../fonts/glyphicons-halflings-regular.eot');
   src: url('../fonts/glyphicons-halflings-regular.eot?#iefix') format('embedded-opentype'), url('../fonts/glyphicons-halflings-regular.woff') format('woff'), url('../fonts/glyphicons-halflings-regular.ttf') format('truetype'), url('../fonts/glyphicons-halflings-regular.svg#glyphicons-halflingsregular') format('svg');
@@ -2160,7 +2161,7 @@ input[type="button"].btn-block {
   font-weight: normal;
   line-height: 1;
   -webkit-font-smoothing: antialiased;
-}
+}*/
 .glyphicon-asterisk:before {
   content: "\2a";
 }
@@ -2732,7 +2733,7 @@ input[type="button"].btn-block {
   content: "\e200";
 }
 .glyphicon-briefcase:before {
-  content: "\1f4bc";
+  content: "\e139";
 }
 .glyphicon-calendar:before {
   content: "\1f4c5";

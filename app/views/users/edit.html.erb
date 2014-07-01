@@ -1,27 +1,29 @@
 <% provide(:title, "Editar usuario") %>
-<h1>Actualiza tu perfil</h1>
+<div class="well">
+  <h1>Actualiza tu perfil</h1>
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3">
+      <%= form_for(@user) do |f| %>
+        <%= render 'shared/error_messages', object: f.object %>
 
-<div class="row">
-  <div class="col-md-6 col-md-offset-3">
-    <%= form_for(@user) do |f| %>
-      <%= render 'shared/error_messages', object: f.object %>
+        <%= f.label :name %>
+        <%= f.text_field :name %>
 
-      <%= f.label :name %>
-      <%= f.text_field :name %>
+        <%= f.label :email %>
+        <%= f.text_field :email %>
 
-      <%= f.label :email %>
-      <%= f.text_field :email %>
+        <%= f.label :password %>
+        <%= f.password_field :password %>
 
-      <%= f.label :password %>
-      <%= f.password_field :password %>
+        <%= f.label :password_confirmation %>
+        <%= f.password_field :password_confirmation %>
 
-      <%= f.label :password_confirmation %>
-      <%= f.password_field :password_confirmation %>
-
-      <%= f.submit "Guardar cambios", class: "btn btn-lg btn-primary" %>
-    <% end %>
-
-    <%= gravatar_for @user %>
-    <a href="http://gravatar.com/emails">Cambiar</a>
+        <div class="user-image">
+          <%= gravatar_for @user %>
+          <a href="http://gravatar.com/emails">Cambiar</a>
+        </div>
+        <%= f.submit "Guardar cambios", class: "btn btn-lg btn-primary" %>
+      <% end %>
+    </div>
   </div>
 </div>
