@@ -1,12 +1,14 @@
 <% provide(:title, 'Acta del proyecto ' + @project.name) %>
-<div>
+<div class="well">
   <%= render 'projects/header' %>
-  <div class="row">
-    <div class="text-center" id="paginator">
-      <%= paginate @acts, :remote => true, :theme => 'twitter-bootstrap-3'%>
+  <div class="well">
+    <div class="row">
+      <div class="text-center" id="paginator">
+        <%= paginate @acts, :remote => true, :theme => 'twitter-bootstrap-3'%>
+      </div>
     </div>
-  </div>
-  <div id="act">
-    <%= render 'act_form'%>
+    <div id="act">
+      <%= render 'act_form'%>
+    </div>
   </div>
 </div>

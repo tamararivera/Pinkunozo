@@ -9,18 +9,20 @@
     <h4 class="modal-title">Selecciona un elemento del dialogo de actas anteriores</h4>
   </div>
   <div class="modal-body">
-    <div class="row">
-      <div id="modal-paginator" class="text-center">
-        <%= paginate @acts, :remote => true, :theme => 'twitter-bootstrap-3', :pagination_class => 'pagination-sm'%>
+    <div class="well">
+      <div class="row">
+        <div id="modal-paginator" class="text-center">
+          <%= paginate @acts, :remote => true, :theme => 'twitter-bootstrap-3', :pagination_class => 'pagination-sm'%>
+        </div>
+      </div>
+      <div id="modal-act">
+        <%= render 'select_milestone' %>
       </div>
     </div>
-    <div id="modal-act">
-      <%= render 'select_milestone' %>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+      <button type="button" class="btn btn-primary">Guardar</button>
     </div>
-  </div>
-  <div class="modal-footer">
-    <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
-    <button type="button" class="btn btn-primary">Guardar</button>
   </div>
 </body>
 </html>

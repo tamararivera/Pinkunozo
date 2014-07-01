@@ -1,28 +1,30 @@
 <% provide(:title, 'Actas del proyecto ' + @project.name) %>
-<div>
+<div class="well">
   <%= render 'projects/header' %>
-  <%= link_to "Nueva acta", new_project_act_path(@project), class: "btn btn-primary new-act-button" %>
-  <%= grid(@acts_grid, upper_pagination_panel: true, show_filters: :when_filtered) do |g|
-      g.column name: 'Fecha', attribute: 'date' do |act|
-        act.date  
-      end
+  <div class="well">
+    <%= link_to "Nueva acta", new_project_act_path(@project), class: "btn btn-primary new-act-button" %>
+    <%= grid(@acts_grid, upper_pagination_panel: true, show_filters: :when_filtered) do |g|
+        g.column name: 'Fecha', attribute: 'date' do |act|
+          act.date  
+        end
 
-      g.column name: 'Secretario', attribute: 'name', model: User do |act|
-        act.secretary.name
-      end
+        g.column name: 'Secretario', attribute: 'name', model: User do |act|
+          act.secretary.name
+        end
 
-      g.column name: 'Temas' do |act|
-        act.topics.count
-      end
+        g.column name: 'Temas' do |act|
+          act.topics.count
+        end
 
-      g.column name: 'Presentes' do |act|
-        act.attendants.count
-        #act.attendants.each { |user| gravatar_for user }
-        #<img alt="Tamara Rivera" class="gravatar" src="https://secure.gravatar.com/avatar/a2fbe30c4d672011afd9239ea1202a6e?s=52">
-      end
+        g.column name: 'Presentes' do |act|
+          act.attendants.count
+          #act.attendants.each { |user| gravatar_for user }
+          #<img alt="Tamara Rivera" class="gravatar" src="https://secure.gravatar.com/avatar/a2fbe30c4d672011afd9239ea1202a6e?s=52">
+        end
 
-      g.column do |act|
-        link_to('Editar', edit_project_act_path(id: act.id))
-      end
-    end -%>
+        g.column do |act|
+          link_to('Editar', edit_project_act_path(id: act.id))
+        end
+      end -%>
+    </div>
 </div>
