@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140519034032) do
+ActiveRecord::Schema.define(version: 20140702053536) do
 
   create_table "acts", force: true do |t|
     t.integer  "project_id"
@@ -33,6 +33,7 @@ ActiveRecord::Schema.define(version: 20140519034032) do
     t.string   "type_of_milestone"
     t.string   "status"
     t.integer  "topic_id"
+    t.integer  "parent_id"
   end
 
   create_table "projects", force: true do |t|

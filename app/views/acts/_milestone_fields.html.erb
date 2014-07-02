@@ -26,19 +26,27 @@
     ['Suspendido', 'Suspendido']], {},
     { :class => 'form-control' } %>
   </div>
-
-  <input type="hidden" class="parent-milestone" value=""/>
-
+  
+  <input type='hidden' class='parent-milestone' value='<%= f.object.parent_id %>'/>
+  
+  <div class='parent-info'>
+    <% if f.object.parent %>
+      <div class='col-sm-11 field'>
+        <label class='control-label'>Elemento padre</div> 
+        <div class='parent-name'><%= f.object.parent.name%></div>
+      </div>
+    <% end %>
+  </div>
   <div class='col-sm-11'>
-    <a data-toggle="modal" data-target="#modal<%= f.object.id %>" href="<%= project_act_modal_url(act_id: 1) %>" class="add-parent-milestone btn btn-primary">Definir elemento que lo genera</a>
+    <a data-toggle='modal' data-target='#modal<%= f.object.id %>' href='<%= project_act_modal_url(act_id: 1) %>' class='add-parent-milestone btn btn-primary'>Definir elemento que lo genera</a>
   </div>
   <div class='horizontal-divider col-sm-10 col-sm-offset-1'>
   </div>
 </div>
 
-<div class="modal fade" id="modal<%= f.object.id %>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-lg">
-    <div class="modal-content">
+<div class='modal fade' id='modal<%= f.object.id %>' tabindex='-1' role='dialog' aria-labelledby='seleccione un elemento' aria-hidden='true'>
+  <div class='modal-dialog modal-lg'>
+    <div class='modal-content'>
     </div>
   </div>
 </div>
