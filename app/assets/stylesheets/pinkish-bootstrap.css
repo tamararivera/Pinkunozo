@@ -1843,6 +1843,7 @@ fieldset[disabled] .btn {
   color: #333333;
   background-color: #ffffff;
   border-color: #cccccc;
+  margin-top: 10px;
 }
 /*.btn-default:hover,
 .btn-default:focus,
