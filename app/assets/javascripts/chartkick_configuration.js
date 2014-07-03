@@ -1,0 +1,1 @@
+var Chartkick = {"language": "es"};

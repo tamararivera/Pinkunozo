@@ -26,6 +26,12 @@ class MilestonesController < ApplicationController
     @commitments = milestones.where(type_of_milestone: 'Compromiso')
 
     @attendants = Act.where(project_id: @project.id).joins(:attendants)
+
+    @dates = {}
+    @attendants.group(:date).count.map do |date, assistance|
+      @dates[date.strftime('%m/%d/%y')] = assistance
+    end
+
   end
 
   def show
