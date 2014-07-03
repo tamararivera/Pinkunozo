@@ -19,6 +19,7 @@ Prototipo::Application.routes.draw do
 
   match '/help', to: 'static_pages#help', via: :get
   match '/about', to: 'static_pages#about', via: :get
+  match '/contact', to: 'static_pages#contact', via: :get
   
   #match '/projects/:id/records', to: 'records#index', via: :get, as: :records
   #match '/projects/:id/records/new', to: 'records#new', via: :get, as: :new_record
