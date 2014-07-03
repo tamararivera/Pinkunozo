@@ -1,25 +1,28 @@
 <% provide(:title, 'Acuerdos para el proyecto' + @project.name) %>
-<div>
+
+<div class="well">
   <%= render 'projects/header' %>
-  <%= grid(@agreements_grid, upper_pagination_panel: true, show_filters: :when_filtered) do |g|
-      g.column name: 'Nombre', attribute: 'name'
+  <div class="well">
+    <%= grid(@agreements_grid, upper_pagination_panel: true, show_filters: :when_filtered) do |g|
+        g.column name: 'Nombre', attribute: 'name'
 
-      g.column name: 'Responsable', attribute: 'name', model: User do |milestone|
-        milestone.user.name
-      end
+        g.column name: 'Responsable', attribute: 'name', model: User do |milestone|
+          milestone.user.name
+        end
 
-      g.column name: 'Edad' do |milestone|
-        distance_of_time_in_words_to_now(milestone.topic.act.date)
-      end
+        g.column name: 'Edad' do |milestone|
+          distance_of_time_in_words_to_now(milestone.topic.act.date)
+        end
 
-      g.column name: 'Presentes' do |milestone|
-        milestone.topic.act.attendants.count
-      end
+        g.column name: 'Presentes' do |milestone|
+          milestone.topic.act.attendants.count
+        end
 
-      g.column name: 'Estado', attribute: 'status'
+        g.column name: 'Estado', attribute: 'status'
 
-      g.column do |act|
-        link_to('Ver', )
-      end
-    end -%>
+        g.column do |milestone|
+          link_to('Ver', project_show_milestone_path(milestone_id: milestone.id))
+        end
+      end -%>
+  </div>
 </div>

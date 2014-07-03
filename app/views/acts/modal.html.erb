@@ -1,0 +1,27 @@
+<html>
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Selecciona un elemento del dialogo de actas anteriores</title>  
+</head>
+<body>
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+    <h4 class="modal-title">Selecciona un elemento del dialogo de actas anteriores</h4>
+  </div>
+  <div class="modal-body">
+    <div class="well">
+      <div class="row">
+        <div id="modal-paginator" class="text-center">
+          <%= paginate @acts, :remote => true, :theme => 'twitter-bootstrap-3', :pagination_class => 'pagination-sm'%>
+        </div>
+      </div>
+      <div id="modal-act">
+        <%= render 'select_milestone' %>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
+
+
+

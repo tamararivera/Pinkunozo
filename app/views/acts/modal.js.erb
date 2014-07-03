@@ -1,0 +1,4 @@
+$('#modal-act').html("<%= escape_javascript(render(:partial => 'select_milestone', :locals => {:act => @act})) %>");
+$('#modal-paginator').html("<%= escape_javascript(paginate(@acts, :remote => true, 
+                                                          :theme => 'twitter-bootstrap-3', 
+                                                          :pagination_class => 'pagination-sm').to_s) %>");

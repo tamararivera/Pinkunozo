@@ -1,31 +1,57 @@
 <div class='nested-fields'>
-    <div class='col-sm-11 field'>
-      <%= f.label :name, 'Nombre', class: 'control-label' %>
-      <%= f.text_field :name, class: 'form-control' %>
-    </div>
-    <div class='col-sm-1'>
-      <%= link_to_remove_association "<span class='glyphicon glyphicon-trash delete-button'></span>".html_safe, f, class: 'btn-lg' %>
-    </div>
-    <div class='col-sm-11 field'>
-      <%= f.label :description, 'Descripción', class: 'control-label' %>
-      <%= f.text_area :description, class: 'form-control' %>
-    </div>
-    <div class='col-sm-11 field'>
-        <%= f.label :user_id, 'Responsable', class: 'control-label' %>
-        <%= f.collection_select :user_id, @project.participants, :id, :name, {}, {class: 'form-control'}%>
-    </div>
-    <div class='col-sm-11 field'>
-      <%= f.label :type_of_milestone, 'Tipo de elemento', class: 'control-label' %>
-      <%= f.select :type_of_milestone, [['Acuerdo', 'Acuerdo'], ['Desacuerdo', 'Desacuerdo'],
-                           ['Compromiso', 'Compromiso'], ['Duda', 'Duda']], {},
-                   { :class => 'form-control' } %>
-    </div>
-    <div class='col-sm-11 field'>
-      <%= f.label :status, 'Estado', class: 'control-label' %>
-      <%= f.select :status, [['Vigente', 'Vigente'], ['En ejecución', 'En ejecución'],
-                           ['Suspendido', 'Suspendido']], {},
-                   { :class => 'form-control' } %>
-    </div>
-    <div class='horizontal-divider col-sm-10 col-sm-offset-1'>
+  <div class='col-sm-11 field'>
+    <%= f.label :name, 'Nombre', class: 'control-label' %>
+    <%= f.text_field :name, class: 'form-control' %>
+  </div>
+  <div class='col-sm-1'>
+    <%= link_to_remove_association "<span class='glyphicon glyphicon-trash delete-button'></span>".html_safe, f, class: 'btn-lg' %>
+  </div>
+  <div class='col-sm-11 field'>
+    <%= f.label :description, 'Descripción', class: 'control-label' %>
+    <%= f.text_area :description, class: 'form-control' %>
+  </div>
+  <div class='col-sm-11 field'>
+    <%= f.label :user_id, 'Responsable', class: 'control-label' %>
+    <%= f.collection_select :user_id, @project.participants, :id, :name, {}, {class: 'form-control'}%>
+  </div>
+  <div class='col-sm-11 field'>
+    <%= f.label :type_of_milestone, 'Tipo de elemento', class: 'control-label' %>
+    <%= f.select :type_of_milestone, [['Acuerdo', 'Acuerdo'], ['Desacuerdo', 'Desacuerdo'],
+    ['Compromiso', 'Compromiso'], ['Duda', 'Duda']], {},
+    { :class => 'form-control' } %>
+  </div>
+  <div class='col-sm-11 field'>
+    <%= f.label :status, 'Estado', class: 'control-label' %>
+    <%= f.select :status, [['Vigente', 'Vigente'], ['En ejecución', 'En ejecución'],
+    ['Suspendido', 'Suspendido']], {},
+    { :class => 'form-control' } %>
+  </div>
+  
+  <div class='parent-milestone'>
+    <%= f.hidden_field :parent_id%>
+  </div>
+
+  <div class='parent-info col-sm-11'>
+    <% if f.object.parent %>
+      <div class='field'>
+        <label class='control-label'>Elemento padre</label> 
+        <div class='parent-name'><%= f.object.parent.name%></div>
+      </div>
+    <% end %>
+  </div>
+  <div class='col-sm-11'>
+    <a data-toggle='modal' data-target='#modal<%= f.object.id %>' href='<%= project_act_modal_url(act_id: 1, milestone_id: f.object.id) %>' class='add-parent-milestone btn btn-primary'>Definir elemento que lo genera</a>
+  </div>
+  <div class='horizontal-divider col-sm-10 col-sm-offset-1'>
+  </div>
+</div>
+
+<div class='modal fade' id='modal<%= f.object.id %>' tabindex='-1' role='dialog' aria-labelledby='seleccione un elemento' aria-hidden='true'>
+  <div class='modal-dialog modal-lg'>
+    <div class='modal-content'>
     </div>
   </div>
+</div>
+
+
+

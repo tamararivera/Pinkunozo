@@ -1,0 +1,2 @@
+$('#act').html("<%= escape_javascript(render(:partial => 'act_form', :locals => {:act => @act})) %>");
+$('#paginator').html("<%= escape_javascript(paginate(@acts, :remote => true, :theme => 'twitter-bootstrap-3').to_s) %>");
