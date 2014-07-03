@@ -16,6 +16,7 @@
     <div class='col-sm-6'>
       <div class='col-sm-12'>
         <%topic.milestones.each do |milestone|%>
+          <%if (milestone.id.to_s != @selectedMilestoneId.to_s) %>
           <div>
             <dl>
               <dt>Nombre</dt>
@@ -35,7 +36,7 @@
               </div>
             </dl>
           </div>
-
+          <%end%>
         <%end%>
       </div>
     </div>

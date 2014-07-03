@@ -32,6 +32,9 @@ class ActsController < ApplicationController
       @act = posibleActs[desiredPage.to_f - 1]
       @acts = posibleActs.page(desiredPage).per(1)
     end
+
+    @selectedMilestoneId = params[:milestone_id]
+    
     respond_to do |format|
       format.js
       format.html
@@ -98,6 +101,6 @@ class ActsController < ApplicationController
       params.require(:act).permit(:date, :secretary_id, attendant_ids: [],
                                   topics_attributes: [:id, :name, :discussion, :_destroy,
                                     milestones_attributes: [:id, :name, :description,
-                                                          :user_id, :type_of_milestone, :status, :_destroy]])
+                                                          :user_id, :type_of_milestone, :status, :parent_id, :_destroy]])
     end
 end
