@@ -7,6 +7,7 @@
         <%= paginate @acts, :remote => true, :theme => 'twitter-bootstrap-3'%>
       </div>
     </div>
+    <h2>Acta del <%= l @act.date , format: :long %></h2>
     <div id="act">
       <%= render 'act_form'%>
     </div>
