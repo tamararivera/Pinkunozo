@@ -3,7 +3,7 @@ class ActsController < ApplicationController
   layout false, only: [:modal] 
   def index
     @project = Project.find(params[:project_id])
-    @acts_grid = initialize_grid(Act.where(project_id: @project.id).order(:date),
+    @acts_grid = initialize_grid(Act.where(project_id: @project.id),
       include: :secretary)
   end
   

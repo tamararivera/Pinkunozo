@@ -8,7 +8,7 @@
           act.date  
         end
 
-        g.column name: 'Secretario', attribute: 'name', model: User do |act|
+        g.column name: 'Secretario', attribute: 'name', model: User, custom_filter: :auto do |act|
           act.secretary.name
         end
 

@@ -6,9 +6,9 @@
     <%= grid(@milestones_grid, upper_pagination_panel: true, show_filters: :when_filtered) do |g|
         g.column name: 'Nombre', attribute: 'name'
 
-        g.column name: 'Tipo de elemento', attribute: 'type_of_milestone'
+        g.column name: 'Tipo de elemento', attribute: 'type_of_milestone', custom_filter: :auto
 
-        g.column name: 'Responsable', attribute: 'name', model: User do |milestone|
+        g.column name: 'Responsable', attribute: 'name', model: User, custom_filter: :auto do |milestone|
           milestone.user.name
         end
 
@@ -16,7 +16,7 @@
           distance_of_time_in_words_to_now(milestone.topic.act.date)
         end
 
-        g.column name: 'Estado', attribute: 'status'
+        g.column name: 'Estado', attribute: 'status', custom_filter: :auto
 
         g.column do |milestone|
           link_to('Ver', project_show_milestone_path(milestone_id: milestone.id))
