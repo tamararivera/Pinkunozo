@@ -1,4 +1,4 @@
-$(function(){
+$(document).bind('page:change', function(){
 
     var $selected_milestone;
     $('#topics').on('click', '.add-parent-milestone', function(){
