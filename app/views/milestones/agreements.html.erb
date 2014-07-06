@@ -6,7 +6,8 @@
     <%= grid(@agreements_grid, upper_pagination_panel: true, show_filters: :when_filtered) do |g|
         g.column name: 'Nombre', attribute: 'name'
 
-        g.column name: 'Responsable', attribute: 'name', model: User, custom_filter: :auto do |milestone|
+        g.column name: 'Responsable', attribute: 'id', model: User,
+                 custom_filter: @users do |milestone|
           milestone.user.name
         end
 

@@ -3,20 +3,30 @@ class MilestonesController < ApplicationController
   
   def all
     @project = Project.find(params[:project_id])
+    @users = User.joins(:projects).where(user_projects: {project_id: params[:project_id]}).map{|user| [user.name, user.id]}
 
     milestones = Milestone.joins(topic: :act).where('acts.id' => Act.where(project_id: @project.id).pluck(:id))
     @milestones_grid = initialize_grid(milestones,
-      include: :user)
+      include: :user,
+      custom_order: {
+          'user.id' => 'user.name'
+      }
+    )
   end
 
   def agreements
     @project = Project.find(params[:project_id])
+    @users = User.joins(:projects).where(user_projects: {project_id: params[:project_id]}).map{|user| [user.name, user.id]}
 
     milestones = Milestone.joins(topic: :act).where('acts.id' => Act.where(project_id: @project.id).pluck(:id))
     agreements = milestones.where(type_of_milestone: 'Acuerdo')
 
     @agreements_grid = initialize_grid(agreements,
-      include: :user)
+      include: :user,
+      custom_order: {
+          'user.id' => 'user.name'
+      }
+    )
   end
 
   def reports

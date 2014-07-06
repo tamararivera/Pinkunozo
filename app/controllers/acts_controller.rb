@@ -3,8 +3,14 @@ class ActsController < ApplicationController
   layout false, only: [:modal] 
   def index
     @project = Project.find(params[:project_id])
+    @secretaries = User.joins(:projects).where(user_projects: {project_id: params[:project_id]}).map{|user| [user.name, user.id]}
+
     @acts_grid = initialize_grid(Act.where(project_id: @project.id),
-      include: :secretary)
+      include: :secretary,
+      custom_order: {
+          'user.id' => 'user.name'
+      }
+    )
   end
   
   def show

@@ -110,6 +110,10 @@
     float:left;
   }
 
+  .ui-datepicker-trigger{
+    background: transparent image_url('icons/grid/calendar_view_month.png') no-repeat;
+  }
+
 
   /* in case of twitter bootstrap :) */
   thead th select{

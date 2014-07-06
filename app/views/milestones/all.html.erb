@@ -8,7 +8,8 @@
 
         g.column name: 'Tipo de elemento', attribute: 'type_of_milestone', custom_filter: :auto
 
-        g.column name: 'Responsable', attribute: 'name', model: User, custom_filter: :auto do |milestone|
+        g.column name: 'Responsable', attribute: 'id', model: User,
+                 custom_filter: @users do |milestone|
           milestone.user.name
         end
 
