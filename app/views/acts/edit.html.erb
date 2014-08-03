@@ -1,14 +1,13 @@
 <% provide(:title, 'Acta del proyecto ' + @project.name) %>
 <div class="well">
   <%= render 'projects/header' %>
-  <div class="well">
+  <div >
     <div class="row">
       <div class="text-center" id="paginator">
         <%= paginate @acts, :remote => true, :theme => 'twitter-bootstrap-3', :window => 1%>
       </div>
     </div>
-    <h2>Acta del <%= l @act.date , format: :long %></h2>
-    <div id="act">
+    <div id="act" class="well">
       <%= render 'act_form'%>
     </div>
   </div>
