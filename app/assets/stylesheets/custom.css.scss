@@ -176,3 +176,18 @@ input {
 .parent-name {
   padding-left: 15px;
 }
+
+.collapse-button {
+  margin-top: 20px !important;
+  margin-bottom: 10px !important;
+}
+
+.collapse-button:after {
+  /* symbol for "opening" panels */
+  font-family: 'Glyphicons Halflings';  /* essential for enabling glyphicon */
+  content: "\e113";    /* adjust as needed, taken from bootstrap.css */
+}
+.collapse-button.collapsed:after {
+  /* symbol for "collapsed" panels */
+  content: "\e114";    /* adjust as needed, taken from bootstrap.css */
+}
