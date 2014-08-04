@@ -9,9 +9,21 @@
     </div>
   </div>
   <div class="btn-group btn-group-justified">
-    <%= link_to 'Actas', project_acts_path(@project), class: 'btn btn-default' %>
-    <%= link_to 'Libro de acuerdos', project_agreements_path(@project), class: 'btn btn-default' %>
-    <%= link_to 'Síntesis díalogica', project_milestones_path(@project), class: 'btn btn-default' %>
-    <%= link_to 'Reportes de gestión', project_reports_path(@project), class: 'btn btn-default' %>
+      <%= link_to 'Actas', project_acts_path(@project),
+                  :class => (current_page?(project_acts_path(@project))) ?
+                          'btn btn-default active' : 'btn btn-default',
+                  id: 'actas' %>
+      <%= link_to 'Libro de acuerdos', project_agreements_path(@project),
+                  :class => (current_page?(project_agreements_path(@project))) ?
+                          'btn btn-default active' : 'btn btn-default',
+                  id: 'libro' %>
+      <%= link_to 'Síntesis díalogica', project_milestones_path(@project),
+                  :class => (current_page?(project_milestones_path(@project))) ?
+                          'btn btn-default active' : 'btn btn-default',
+                  id: 'sintesis' %>
+      <%= link_to 'Reportes de gestión', project_reports_path(@project),
+                  :class => (current_page?(project_reports_path(@project))) ?
+                          'btn btn-default active' : 'btn btn-default',
+                  id: 'reportes' %>
   </div>
 </div>
