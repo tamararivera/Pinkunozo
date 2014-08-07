@@ -7,7 +7,12 @@
     </div>
     <div class="row">
         <%if @projects.any?%>
-            <%= render partial: 'shared/project', collection: @projects %>
+          <div class="text-center" id="paginator">
+            <!--TODO llamada por ajax-->
+            <%= paginate @projects, :theme => 'twitter-bootstrap-3', :window => 1%>
+          </div>
+
+          <%= render partial: 'shared/project', collection: @projects %>
         <%end%>
     </div>
   <%else %>
