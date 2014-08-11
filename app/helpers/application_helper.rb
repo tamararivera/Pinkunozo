@@ -11,12 +11,20 @@ module ApplicationHelper
   end
 
   def flash_class(level)
-  case level
-    when :notice then "alert alert-info"
-    when :success then "alert alert-success"
-    when :error then "alert alert-danger"
-    when :alert then "alert alert-warning"
+    case level
+      when :notice then "alert alert-info"
+      when :success then "alert alert-success"
+      when :error then "alert alert-danger"
+      when :alert then "alert alert-warning"
+    end
   end
-end
+
+  # Returns the Gravatar (http://gravatar.com/) for the given user.
+  def gravatar_for(user, options = { size: 50 })
+    gravatar_id = Digest::MD5::hexdigest(user.email.downcase)
+    size = options[:size]
+    gravatar_url = "https://secure.gravatar.com/avatar/#{gravatar_id}?s=#{size}"
+    image_tag(gravatar_url, alt: user.name, title:user.name , class: options[:class])
+  end
 
 end

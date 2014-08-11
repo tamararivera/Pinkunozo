@@ -19,7 +19,7 @@
         <%= f.password_field :password_confirmation %>
 
         <div class="user-image">
-          <%= gravatar_for @user %>
+          <%= gravatar_for @user, class: "gravatar" %>
           <a href="http://gravatar.com/emails">Cambiar</a>
         </div>
         <%= f.submit "Guardar cambios", class: "btn btn-lg btn-primary" %>
