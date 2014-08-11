@@ -15,6 +15,7 @@
 //= require jquery.ui.all
 //= require jquery.ui.datepicker
 //= require jquery.ui.datepicker-es
+//= require jquery.autosize
 //= require wice_grid
 //= require bootstrap
 //= require cocoon

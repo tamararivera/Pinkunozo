@@ -16,4 +16,5 @@ $(document).bind('page:change', function(){
         }
     })
 
+    $('textarea').autosize();
 });
