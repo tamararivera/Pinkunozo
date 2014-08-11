@@ -22,7 +22,7 @@
         </div>
         <div class='form-group'>
           <%= f.label :attendant_ids, 'Asistentes', class: 'col-sm-1 control-label'%>
-          <div class='col-sm-4'>
+          <div class='col-sm-11'>
             <%= f.collection_check_boxes :attendant_ids, @project.participants, :id, :name do |b|%>
                 <div class='checkbox-inline'>
                   <%=b.label(:"data-value" => b.value) { b.check_box(class: 'checkbox-input') + gravatar_for(b.object, size: 32)}%>
