@@ -16,7 +16,7 @@
                                       ['Compromiso', 'Compromiso'], ['Duda', 'Duda']], {},
                  { :class => 'form-control' } %>
   </div>
-  //TODO: esconder este campo si es un acuerdo
+  <!--TODO: esconder este campo si es un acuerdo-->
   <div class='col-sm-11 field'>
     <%= f.label :user_id, 'Responsable', class: 'control-label' %>
     <%= f.collection_select :user_id, @project.participants, :id, :name, {}, {class: 'form-control'}%>
