@@ -6,11 +6,6 @@
     <%= grid(@agreements_grid, upper_pagination_panel: true, show_filters: :always) do |g|
         g.column name: 'Nombre', attribute: 'name'
 
-        g.column name: 'Responsable', attribute: 'id', model: User,
-                 custom_filter: @users do |milestone|
-          milestone.user.name
-        end
-
         g.column name: 'Edad' do |milestone|
           distance_of_time_in_words_to_now(milestone.topic.act.date)
         end

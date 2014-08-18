@@ -11,14 +11,15 @@
     <%= f.text_area :description, class: 'form-control' %>
   </div>
   <div class='col-sm-11 field'>
-    <%= f.label :user_id, 'Responsable', class: 'control-label' %>
-    <%= f.collection_select :user_id, @project.participants, :id, :name, {}, {class: 'form-control'}%>
-  </div>
-  <div class='col-sm-11 field'>
     <%= f.label :type_of_milestone, 'Tipo de elemento', class: 'control-label' %>
     <%= f.select :type_of_milestone, [['Acuerdo', 'Acuerdo'], ['Desacuerdo', 'Desacuerdo'],
-    ['Compromiso', 'Compromiso'], ['Duda', 'Duda']], {},
-    { :class => 'form-control' } %>
+                                      ['Compromiso', 'Compromiso'], ['Duda', 'Duda']], {},
+                 { :class => 'form-control' } %>
+  </div>
+  //TODO: esconder este campo si es un acuerdo
+  <div class='col-sm-11 field'>
+    <%= f.label :user_id, 'Responsable', class: 'control-label' %>
+    <%= f.collection_select :user_id, @project.participants, :id, :name, {}, {class: 'form-control'}%>
   </div>
   <div class='col-sm-11 field'>
     <%= f.label :status, 'Estado', class: 'control-label' %>

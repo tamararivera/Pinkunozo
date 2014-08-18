@@ -7,10 +7,12 @@
       <dl class="dl-horizontal">  
         <dt>Descripción</dt>
         <dd><%= @milestone.description%></dd>
-        <dt>Responsable</dt>
-        <dd><%= @milestone.user.name%></dd>
         <dt>Tipo de elemento</dt>
         <dd><%= @milestone.type_of_milestone%></dd>
+        <% if @milestone.type_of_milestone != 'Acuerdo' %>
+            <dt>Responsable</dt>
+            <dd><%= @milestone.user.name%></dd>
+        <% end %>
         <dt>Estado</dt>
         <dd><%= @milestone.status%></dd>
       </dl>
