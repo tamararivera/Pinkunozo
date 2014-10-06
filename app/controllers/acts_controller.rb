@@ -6,6 +6,8 @@ class ActsController < ApplicationController
     @secretaries = User.joins(:projects).where(user_projects: {project_id: params[:project_id]}).map{|user| [user.name, user.id]}
 
     @acts_grid = initialize_grid(Act.where(project_id: @project.id),
+      order: 'date',
+      order_direction: 'asc',
       include: :secretary,
       custom_order: {
           'user.id' => 'user.name'
