@@ -164,17 +164,24 @@ input {
   }
 }
 
-/*Projects buttons*/
+.elephant-logo {
+  padding-bottom: 7px;
+}
+
+/*Home view*/
 
 .project-button {
   white-space: normal !important;
   height: 100px;
 }
 
-.elephant-logo {
-  padding-bottom: 7px;
+/*Project view*/
+.project-nav {
+  z-index: 0;
 }
 
+
+/* Act details*/
 .parent-name {
   padding-left: 15px;
 }
