@@ -5,7 +5,7 @@
 @import "bootstrap";
 @import "bootstrap/theme";
 
-@import "pinkish-bootstrap";
+
 
 @mixin box_sizing {
   -moz-box-sizing: border-box;
@@ -173,6 +173,7 @@ input {
 .project-button {
   white-space: normal !important;
   height: 100px;
+  padding: 10px !important;
 }
 
 /*Project view*/
