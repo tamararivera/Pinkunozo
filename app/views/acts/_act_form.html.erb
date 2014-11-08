@@ -1,7 +1,7 @@
 <%= form_for([@project, @act], html: {class: 'form-horizontal'}) do |f| %>
     <div class="row text-center">
       <% if !@act.date %>
-          <h2>Nueva acta</h2>
+          <h2 class="col-sm-11">Nueva acta</h2>
       <% else %>
           <h2 class="col-sm-11">Acta del <%= l @act.date , format: :long %></h2>
       <% end %>
